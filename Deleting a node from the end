@@ -1,0 +1,37 @@
+ Deleting a node from the end leetcode style
+logic//
+1. phle ek dummy bangega ek slow and ek fast pointer.
+2. fast mei loop chalake value save karenge jisko remove kerna hai uska
+3. slow se usko replace ker denge//
+
+
+INPUT [1,2,3,4,5] VAL=2;
+
+
+
+class Solution {
+    public ListNode removeNthFromEnd(ListNode head, int n) {
+ListNode dummy=new ListNode(0);
+dummy.next=head;
+ListNode slow=dummy;
+ListNode fast=dummy;
+for(int i=0;i<n+1;i++){
+fast=fast.next;
+}
+while(fast!=null){
+fast=fast.next;
+slow=slow.next;
+}
+return dummy.next;
+
+
+
+
+
+
+
+
+
+
+}
+}
