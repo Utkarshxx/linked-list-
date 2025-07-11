@@ -1,0 +1,38 @@
+ Remove evry kth node leetcode style
+//////
+logic
+1. temp banega and count=1 for index traversing.\
+2.traverse karenge if index even hoga replace kerenge else check next one.
+//
+
+INOUT =[1,2,3,4,5,6,7,8] VAL=2;
+OUTPUT=[1,3,5,7];
+
+
+
+class Solution{
+  Node deletekth(Node head,int val){
+Node temp=head;
+    if(head==null|| val=0){
+      return head;
+      if(val=1){
+        return null;
+        }
+      int count=1;
+      while(temp!=null){
+        if(count+1%2==0){
+          temp.next=temp.next.next;
+          count++;
+          }
+        else{
+          temp=temp.next;
+          count++;
+          }
+        }
+      return head;
+      }
+    }
+
+  /////
+
+    
