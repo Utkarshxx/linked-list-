@@ -1,0 +1,42 @@
+////PALINDROME IN LINKED LIST
+
+//LOGIC
+class Solution {
+    public boolean isPalindrome(ListNode head) {
+        ListNode temp=head;
+        
+        int count=0;
+        while(temp!=null){
+            count++;
+            temp=temp.next;//////    COUNT
+        }
+        count=count/2;//////BREAK THE LINKED LIST IN HALF
+        ListNode curr=head;
+        ListNode prev=null;
+        while(count-->0){
+            
+            prev=curr;
+            curr=curr.next;
+        }
+        if (prev != null) prev.next = null; // ✅ Safe version
+
+        prev=null; 
+        ListNode next=null;///EVERSE THE SECOND HALF OF THE LINKED LIST
+        while(curr!=null){
+            next=curr.next;
+            curr.next=prev;
+            prev=curr;
+            curr=next;
+        }      
+        ListNode head1=head;
+        ListNode head2=prev;
+        while(head1!=null){
+            if(head1.val!=head2.val)
+                return false;
+            head1=head1.next;
+            head2=head2.next;
+            
+        }
+        return true;
+    }
+}
