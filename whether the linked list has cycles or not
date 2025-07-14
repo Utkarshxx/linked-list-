@@ -1,0 +1,30 @@
+//CHECKING CYCLES IN THE LINKED LIST\
+LOGIC
+1. 2 POINTERS BANAEGNGE ONE FAST AND ONE SLOW.
+2. SLOW ONE STEP AT A TIME AND FAST 2 STEPS AT A TIME.
+3. IF THERE IS CYCLE SLOW==FAST WILL DEFINITELY HAPPEN.
+
+
+
+
+
+CODE
+
+
+
+public class Solution {
+    public boolean hasCycle(ListNode head) {
+        ListNode temp=head;
+        ListNode temp2=head;
+        while(temp!=null&&temp.next!=null){
+            temp2=temp2.next;
+            temp=temp.next.next;
+            if(temp==temp2){
+        return true;
+            }
+
+        }
+                return false;
+        
+    }
+}
